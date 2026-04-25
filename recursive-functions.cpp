@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 // Function 1: Recursive string length
 int recursiveLength(const char* str) {
@@ -13,10 +12,10 @@ int recursiveLength(const char* str) {
 
 // Function 2: Generate all strings of length k
 template <size_t N>
-void generateStrings(char (&collection)[N], int k, string current = "") {
+void generateStrings(char (&collection)[N], int k, const std::string& current = "") {
     // Base case: if current string is length k
     if (current.length() == k) {
-        cout << current << endl;
+        std::cout << current << std::endl;
         return;
     }
 
@@ -29,24 +28,24 @@ void generateStrings(char (&collection)[N], int k, string current = "") {
 int main() {
     // ---- Test recursive string length ----
     const char str[] = "hello";
-    cout << "String: " << str << endl;
-    cout << "Length (recursive): " << recursiveLength(str) << endl;
+    std::cout << "String: " << str << std::endl;
+    std::cout << "Length (recursive): " << recursiveLength(str) << std::endl;
 
-    cout << endl;
+    std::cout << std::endl;
 
     // ---- Test generate strings ----
     // ---- First test ----
     char collection1[] = {'a', 'b'};
     int k1 = 3;
-    cout << "All strings of length " << k1 << ":\n";
+    std::cout << "All strings of length " << k1 << ":\n";
     generateStrings(collection1, k1);
 
-    cout << endl;
+    std::cout << std::endl;
 
     // ---- Second test ----
     char collection2[] = {'a', 'b', 'c', 'd'};
     int k2 = 1;
-    cout << "All strings of length " << k2 << ":\n";
+    std::cout << "All strings of length " << k2 << ":\n";
     generateStrings(collection2, k2);
 
     return 0;
